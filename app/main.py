@@ -33,13 +33,19 @@ def get_section_info(section_id: str):
 
     print(ta1_name)
 
+    hr = ""
+    if section_id == "a": hr = "09"
+    elif section_id == "b": hr = "10"
+    elif section_id == "c": hr = "11"
+    else: hr = "12"
+
     # TODO
     if section_id == "a":
         return {
-            "section": "section_name",
-            "start_time": "HH:MM",
-            "end_time": "HH:MM",
-            "ta": ["taName1", "taName2"]
+            "section": section_id.upper(),
+            "start_time": hr + ":00"
+            "end_time": hr + ":50",
+            "ta": [ta1_name, ta2_name]
         }
     else:
         raise HTTPException(status_code=404, detail="Invalid section id")
